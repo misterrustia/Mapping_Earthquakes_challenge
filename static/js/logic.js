@@ -78,7 +78,7 @@ let overlays = {
         if(magnitude >1){
             return "#d4ee00";
         }
-        return "98ee00"
+        return "98eee00"
     }
     // fnc returns radius of the earthquake marker based on mag
     // earthquake with mag of 0 being plotted with wrong raidus
@@ -103,4 +103,25 @@ let overlays = {
 
     allEarthquakes.addTo(map)
 
+    let legend = L.control({
+        position: "bottomright"
+    })
+
+    legend.onAdd = function(){
+        let div = L.DomUtil.create('div','info lagend');
+        const magnitudes =[ 0,1,2,3,4,5]
+        const colors =[
+            "#98eee00",
+            "#d4ee00",
+            "#ee9c00",
+            "#ea822c",
+            "#ea2c2c"
+
+        ]
+        for(var i =0; i< magnitudes.length;i++){
+            console.log(colors[i])
+            div.innerHTML += `<i style='background:${colors[i]}'>/</i>` + magnitudes[i] + (magnitudes[i +1] ? "&dash;" + magnitudes[i +1] + "<br>": "+")
+        }
+        return div;
+    }
  })
