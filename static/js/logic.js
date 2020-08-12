@@ -127,4 +127,13 @@ let overlays = {
 
     legend.addTo(map)
 
+    d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(plateData){
+        L.geoJson(plateData, {
+            color: "#ff6500",
+            weight: 2
+        }).addTo(techtonicplates)
+
+        techtonicplates.addTo(map)
+    })
+
  })
