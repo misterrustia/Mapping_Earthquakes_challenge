@@ -108,10 +108,10 @@ let overlays = {
     })
 
     legend.onAdd = function(){
-        let div = L.DomUtil.create('div','info lagend');
+        let div = L.DomUtil.create('div','info legend');
         const magnitudes =[ 0,1,2,3,4,5]
         const colors =[
-            "#98eee00",
+            "#98eee0",
             "#d4ee00",
             "#ee9c00",
             "#ea822c",
@@ -120,8 +120,11 @@ let overlays = {
         ]
         for(var i =0; i< magnitudes.length;i++){
             console.log(colors[i])
-            div.innerHTML += `<i style='background:${colors[i]}'>/</i>` + magnitudes[i] + (magnitudes[i +1] ? "&dash;" + magnitudes[i +1] + "<br>": "+")
+            div.innerHTML += `<i style='background:${colors[i]}'></i>` + magnitudes[i] + (magnitudes[i +1] ? "&ndash;" + magnitudes[i +1] + "<br>": "+")
         }
         return div;
     }
+
+    legend.addTo(map)
+
  })
