@@ -1,4 +1,4 @@
-alert("working")
+
 
 
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -78,7 +78,7 @@ let overlays = {
         if(magnitude >1){
             return "#d4ee00";
         }
-        return "98eee00"
+        return "98ee00"
     }
     // fnc returns radius of the earthquake marker based on mag
     // earthquake with mag of 0 being plotted with wrong raidus
@@ -111,7 +111,7 @@ let overlays = {
         let div = L.DomUtil.create('div','info legend');
         const magnitudes =[ 0,1,2,3,4,5]
         const colors =[
-            "#98eee0",
+            "#98ee0",
             "#d4ee00",
             "#ee9c00",
             "#ea822c",
