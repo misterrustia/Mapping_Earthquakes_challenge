@@ -63,6 +63,9 @@ let overlays = {
     }
 
     function getColor(magnitude){
+        if(magnitude >6){
+            return "#660000";
+        }
         if(magnitude >5){
             return "#ea2c2c";
         }
@@ -109,13 +112,14 @@ let overlays = {
 
     legend.onAdd = function(){
         let div = L.DomUtil.create('div','info legend');
-        const magnitudes =[ 0,1,2,3,4,5]
+        const magnitudes =[ 0,1,2,3,4,5,6]
         const colors =[
             "#98ee0",
             "#d4ee00",
             "#ee9c00",
             "#ea822c",
-            "#ea2c2c"
+            "#ea2c2c",
+            "#660000"
 
         ]
         for(var i =0; i< magnitudes.length;i++){
@@ -129,7 +133,7 @@ let overlays = {
 
     d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(plateData){
         L.geoJson(plateData, {
-            color: "#ff6500",
+            color: "#98ee00",
             weight: 2
         }).addTo(techtonicplates)
 
